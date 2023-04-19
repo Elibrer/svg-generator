@@ -1,26 +1,25 @@
 const inquirer = require('inquirer');
 const path = require('path');
-const RenderLogo = require('./lib/renderLogo');
-const {renderLogo} = require('./lib/renderLogo');
 
+const { renderLogo } = require('./lib/renderLogo');
 
 
 const logoQuestions = [
   {
     type: 'list',
-    name: 'logoShape',
+    name: 'shape',
     message: 'What type of logo would you like to create?',
     choices: ['Triangle', 'Circle', 'Square'],
   },
   {
     type: 'list',
-    name: 'logoColor',
+    name: 'color',
     message: 'What color would you like your logo to be?',
     choices: ['Red', 'Green', 'Blue'],
   },
   {
     type: 'input',
-    name: 'logoText',
+    name: 'text',
     message: 'What text would you like to appear on your logo?',
   },
 ];
@@ -30,12 +29,11 @@ const init = async () => {
   try {
 
     const logoStyle = await inquirer.prompt(logoQuestions);  
-    const {logoShape, logoColor, logoText} = logoStyle;
-    console.log(logoStyle);
+    //const {logoShape, logoColor, logoText} = logoStyle;
 
-    const logo = new RenderLogo(logoStyle);
-
-    logo.eggs();
+    renderLogo(logoStyle);
+    
+    //console.log(renderLogo(logoStyle));
 }
 catch (err) {
   console.log(err + "CATCH ERROR");}
