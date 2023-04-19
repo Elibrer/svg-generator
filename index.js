@@ -1,15 +1,15 @@
 const inquirer = require('inquirer');
 const path = require('path');
+const fs = require('fs');
 
-const { renderLogo } = require('./lib/renderLogo');
-
+const renderLogo = require('./lib/renderLogo');
 
 const logoQuestions = [
   {
     type: 'list',
     name: 'shape',
     message: 'What type of logo would you like to create?',
-    choices: ['Triangle', 'Circle', 'Square'],
+    choices: ['Square', 'Circle', 'Triangle'],
   },
   {
     type: 'list',
@@ -22,21 +22,46 @@ const logoQuestions = [
     name: 'text',
     message: 'What text would you like to appear on your logo?',
   },
+  {
+    type: 'list',
+    name: 'textColor',
+    message: 'What color would you like your text to be?',
+    choices: ['Red', 'Green', 'Blue'],
+  }
 ];
 
-
 const init = async () => {
+
   try {
-
     const logoStyle = await inquirer.prompt(logoQuestions);  
-    //const {logoShape, logoColor, logoText} = logoStyle;
+    if (logoStyle.color === logoStyle.textColor) {
+      console.log("You can't have the same color for your logo and your text. Please try again.");
+      return init();
+    }
 
-    renderLogo(logoStyle);
+    if (logoStyle.text.length > 3) {
+      console.log("Your text must be 3 characters or less. Please try again.");
+      return init();
+    }
+    if (logoStyle.text.length < 1) {
+      console.log("Your text must be at least 1 character. Please try again.");
+      return init();
+    }
+
+    
+
+    fs.writeFile(`./examples/index.html`, renderLogo(logoStyle), (logoStyle), (err) =>
+    err ? console.error(err) : console.log("HTML creation including SVG content success!")
+    );
+
+    // fs.writeFile(path.join(__dirname, 'examples', 'logo.svg'), renderLogo(logoStyle), (err) =>
+    //   err ? console.log(err) : console.log('Success!')
+    // );
     
     //console.log(renderLogo(logoStyle));
 }
 catch (err) {
-  console.log(err + "CATCH ERROR");}
+  console.log(err);}
 };
 
 

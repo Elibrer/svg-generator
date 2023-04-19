@@ -1,4 +1,4 @@
-const Logo = require('../lib/Logo.js');
+const Logo = require('../lib/logo.js');
 
 describe('Logo', () => {
   test(`Shouldn't throw error if parent renderLogo function is called`, () => {
