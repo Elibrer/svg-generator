@@ -38,8 +38,7 @@ const init = async () => {
     logo.eggs();
 }
 catch (err) {
-  console.log("oh");
-}
+  console.log(err + "CATCH ERROR");}
 };
 
 
