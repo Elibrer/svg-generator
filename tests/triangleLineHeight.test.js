@@ -10,10 +10,11 @@ describe('Triangle Line Height', () => {
         size: [210, 140],
         textColor: 'teal'
     };
-    const triangle = new Triangle(logoStyle);
+    const { shape, color, text, size, textColor } = logoStyle;
+    const triangle = new Triangle(shape, color, text, size, textColor);
 
-    const expectedSvgCode= `x="105" y="113.125"`
     // x="105" y="113.125" is the expected text height for a triangle with a width of 210 and a height of 140.
+    const expectedSvgCode= `x="105" y="113.125"`
 
     expect(triangle.textHeight()).toBe(expectedSvgCode);
   });

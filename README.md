@@ -86,8 +86,11 @@ logo.html creation including SVG content success!
 - The two files are then accessible inside of the `./examples/` folder within the root directory, for the user to access and use how they please.
 
 ## Documentation
-[Link to walkthrough video]()
+[Link to walkthrough video](https://drive.google.com/file/d/1TWD95khx3tmJ3K4Qj4ZNrSKU91ElyJZd/view?usp=share_link)
 ## Application Preview
+
+### `CLI demo`
+![CLI demo.](./assets/images/cli-demo.png)
 
 ### `logo.svg`
 ![Generated svg logo.](./assets/images/logo-svg.png)
