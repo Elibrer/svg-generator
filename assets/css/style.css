@@ -36,13 +36,6 @@ body {
 }
 
 svg {
-  display: inline-block;
-  font: italic 40px serif;
-  font-weight: bolder;
-  line-height: 500px;
-  /* border: 2px solid black; */
   box-shadow: 4px 6px 10px #111;
   background-color: white;
-
-
 }

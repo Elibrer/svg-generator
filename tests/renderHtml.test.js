@@ -1,4 +1,4 @@
-const renderHtml = require('../lib/renderHtml.js');
+const renderHtml = require('../lib/renderHtmlFile.js');
 
 describe('Render HTML', () => {
     test('Should return a string', () => {
